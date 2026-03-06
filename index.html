@@ -6,7 +6,7 @@
 <title>Built to Lead | Red Wing Shoe Company</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
 /* ============================================================
    RESET & BASE
@@ -41,9 +41,7 @@ ul { list-style: none; }
 /* ============================================================
    TYPOGRAPHY UTILITIES
    ============================================================ */
-.font-display { font-family: 'Bebas Neue', sans-serif; }
 .section-label {
-  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -61,11 +59,6 @@ ul { list-style: none; }
   color: var(--dark);
 }
 .section-headline--white { color: var(--white); }
-.body-text {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--gray-md);
-}
 
 /* ============================================================
    LAYOUT
@@ -417,7 +410,7 @@ ul { list-style: none; }
   background: transparent;
   color: var(--gray-md);
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
 }
 .tab-btn:hover { border-color: var(--red); color: var(--red); }
 .tab-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
@@ -544,9 +537,6 @@ ul { list-style: none; }
 .tl-item {
   position: relative;
   height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 1;
 }
 /* Node always pinned exactly to the center line */
@@ -561,7 +551,6 @@ ul { list-style: none; }
   background: var(--red);
   border: 3px solid var(--red);
   z-index: 2;
-  flex-shrink: 0;
 }
 .tl-node--outline {
   background: var(--gray-lt);
@@ -700,27 +689,12 @@ ul { list-style: none; }
   gap: 12px;
 }
 .assess-list li::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--red);
-  flex-shrink: 0;
-  margin-top: 2px;
-  position: relative;
-}
-.assess-list li::before {
   content: '✓';
-  background: transparent;
   color: var(--red);
   font-size: 13px;
   font-weight: 700;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  margin-top: 0;
   line-height: 1.7;
+  flex-shrink: 0;
 }
 
 /* ============================================================
@@ -728,7 +702,7 @@ ul { list-style: none; }
    ============================================================ */
 #footer {
   background: #14121A;
-  padding: 40px;
+  padding: 40px 0;
 }
 .footer-inner {
   max-width: 1280px;
@@ -840,6 +814,17 @@ ul { list-style: none; }
 </head>
 <body>
 
+<!-- SVG symbol defs — defined once, referenced everywhere via <use> -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="icon-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+</svg>
+
 <!-- ============================================================
      NAV
      ============================================================ -->
@@ -860,11 +845,11 @@ ul { list-style: none; }
     </button>
   </div>
   <nav class="nav-mobile" id="navMobile">
-    <a href="#overview"   onclick="closeMobileNav()">Overview</a>
-    <a href="#philosophy" onclick="closeMobileNav()">Philosophy</a>
-    <a href="#modules"    onclick="closeMobileNav()">Modules</a>
-    <a href="#timeline"   onclick="closeMobileNav()">Timeline</a>
-    <a href="#outcomes"   onclick="closeMobileNav()">Outcomes</a>
+    <a href="#overview">Overview</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#modules">Modules</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#outcomes">Outcomes</a>
   </nav>
 </nav>
 
@@ -1024,11 +1009,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1048,11 +1033,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               Store Managers, DMs
             </span>
           </div>
@@ -1072,11 +1057,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1103,11 +1088,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               2 hours
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1127,11 +1112,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1151,11 +1136,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               2 hours
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1182,11 +1167,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1206,11 +1191,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               Store Managers, DMs
             </span>
           </div>
@@ -1230,11 +1215,11 @@ ul { list-style: none; }
           </ul>
           <div class="module-footer">
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="13" height="13"><use href="#icon-clock"/></svg>
               90 min
             </span>
             <span class="module-meta">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="13" height="13"><use href="#icon-people"/></svg>
               All retail leaders
             </span>
           </div>
@@ -1519,10 +1504,12 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   navMobile.classList.toggle('open');
 });
-function closeMobileNav() {
-  hamburger.classList.remove('open');
-  navMobile.classList.remove('open');
-}
+navMobile.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navMobile.classList.remove('open');
+  });
+});
 
 /* --- MODULE TABS --- */
 const tabBtns   = document.querySelectorAll('.tab-btn');
@@ -1530,9 +1517,10 @@ const tabPanels = document.querySelectorAll('.tab-panel');
 
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
+    if (btn.classList.contains('active')) return;
     const target = btn.dataset.tab;
     tabBtns.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => { p.classList.remove('active'); });
+    tabPanels.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(target).classList.add('active');
   });
